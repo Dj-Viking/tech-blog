@@ -100,3 +100,10 @@ Post.hasMany
     onDelete: 'cascade'
   }
 );
+
+module.exports = {
+  User,
+  Post,
+  Vote,
+  Comment
+};
