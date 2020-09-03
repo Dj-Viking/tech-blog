@@ -6,7 +6,11 @@
   <form class="edit-post-form">
     <div>
       <input name="post-title" type="text" value="{{post.title}}" autocomplete="off"/>
-      <span>({{format_url post.post_url}})</span>
+      <span>Original Title - ({{post.title}})</span>
+    </div>
+    <div>
+      <input name="post-url" type="text" value="{{post.post_url}}" autocomplete="off"/>
+      <span>Original Link - ({{post.post_url}})</span>
     </div>
     <div>
       {{post.vote_count}} {{format_plural "upvote" post.vote_count}} by you on {{format_date post.created_at}}

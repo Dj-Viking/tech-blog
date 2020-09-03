@@ -53,7 +53,7 @@ router.get('/', withAuth, (req, res) => {
   });
 });
 
-//edit a post on the dashboard page
+//get a single post on the dashboard page
 router.get('/edit/:id', withAuth, (req, res) => {
   console.log(`
   `);
@@ -105,6 +105,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     res.status(500).json(err);
   });
 });
+
 //edit a post from dashboard page
 router.put('/edit/:id', withAuth, (req, res) => {
   console.log(`
@@ -113,7 +114,8 @@ router.put('/edit/:id', withAuth, (req, res) => {
   console.log('\x1b[33m', 'client request to update a post title by id ', '\x1b[00m');
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      post_url: req.body.post_url
     },
     {
       where: {
@@ -130,12 +132,9 @@ router.put('/edit/:id', withAuth, (req, res) => {
       );
       return;
     } else {
-      res.json(dbPostData);
-      const post = dbPostData.get({ plain: true });
-
-      res.render('edit-post',
+      res.json(dbPostData).render('edit-post',
         {
-          post,
+          post: dbPostData.get({plain: true}),
           loggedIn: true
         }
       );

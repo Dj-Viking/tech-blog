@@ -139,7 +139,7 @@ router.put('/upvote', withAuth, (req, res) => {
   } 
 });
 
-//update a post title
+//update a post title and post_url
 router.put('/:id', withAuth,(req, res) => {
   console.log(`
   
@@ -147,7 +147,8 @@ router.put('/:id', withAuth,(req, res) => {
   console.log('\x1b[33m', 'client request to update a post title by id ', '\x1b[00m');
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      post_url: req.body.post_url
     },
     {
       where: {
