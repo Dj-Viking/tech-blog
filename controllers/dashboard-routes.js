@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection.js');
 const { Post, User, Comment } = require('../models');
-//const { withAuth } = require('../utils/auth.js');
+const { withAuth } = require('../utils/auth.js');
 
 //get all posts on the dashboard page
-router.get('/', /**withAuth, */ (req, res) => {
+router.get('/', withAuth, (req, res) => {
   console.log(`
   `);
   console.log("\x1b[33m", "client request to get to the dashboard", "\x1b[00m");
@@ -54,7 +54,7 @@ router.get('/', /**withAuth, */ (req, res) => {
 });
 
 //edit a post on the dashboard page
-router.get('/edit/:id', /**withAuth, */ (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
   console.log(`
   `);
   console.log("\x1b[33m", "client request to get to edit-post page", "\x1b[00m");
@@ -106,7 +106,7 @@ router.get('/edit/:id', /**withAuth, */ (req, res) => {
   });
 });
 //edit a post from dashboard page
-router.put('/edit/:id', /**withAuth, */ (req, res) => {
+router.put('/edit/:id', withAuth, (req, res) => {
   console.log(`
   
   `)
@@ -148,7 +148,7 @@ router.put('/edit/:id', /**withAuth, */ (req, res) => {
 });
 
 //delete a post from the dashboard page
-router.delete('/edit/:id', /**withAuth, */ (req, res) => {
+router.delete('/edit/:id', withAuth, (req, res) => {
   console.log(`
   
   `)

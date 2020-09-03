@@ -3,7 +3,7 @@ const format_date = date => {
 };
 
 //format plural for the word comments
-const format_plural = (word, count) => {
+const format_plural = (word, amount) => {
   if (amount >= 2 || amount === 0) {
     return `${word}s`
   } else if (amount === 1) {
