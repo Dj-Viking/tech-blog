@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection.js');
 const { Post, User, Vote, Comment } = require('../../models');
-//const { withAuth } = require('../../utils/auth.js');
+const { withAuth } = require('../../utils/auth.js');
 
 //get all posts
 router.get('/', (req, res) => {
@@ -85,7 +85,7 @@ router.get('/:id', (req, res) => {
 });
 
 //create a post, user_id must be included
-router.post('/', /**withAuth, */ (req, res) => {
+router.post('/', withAuth, (req, res) => {
   console.log(`
   
   `);
@@ -109,7 +109,7 @@ router.post('/', /**withAuth, */ (req, res) => {
 
 //put an update on a post with an upvote
 //user_id is who is voting and post_id is the post the user is voting on
-router.put('/upvote', /**withAuth, */ (req, res) => {
+router.put('/upvote', withAuth, (req, res) => {
   console.log(`
   
   `);
@@ -137,7 +137,7 @@ router.put('/upvote', /**withAuth, */ (req, res) => {
 });
 
 //update a post title
-router.put('/:id', /**withAuth */ (req, res) => {
+router.put('/:id', withAuth,(req, res) => {
   console.log(`
   
   `)
@@ -171,7 +171,7 @@ router.put('/:id', /**withAuth */ (req, res) => {
 });
 
 //delete a post by id
-router.delete('/:id', /**withAuth */ (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   console.log(`
   
   `)
