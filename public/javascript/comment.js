@@ -22,7 +22,7 @@ const commentFormHandler = async (event) => {
         'Content-Type': 'application/json'
       }
     });
-    response.ok ? console.log("did it work?") : console.log("There was an error"); console.log(response.statusText);
+    response.ok ? document.location.reload() : console.log("There was an error"); console.log(response.statusText);
   } catch (error) {
     console.log(error);
   }

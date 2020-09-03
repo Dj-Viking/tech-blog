@@ -49,41 +49,41 @@ router.get('/:id', (req, res) => {
   `);
   console.log('\x1b[33m', 'client request for all posts by a single user_id', '\x1b[00m');
   res.status(200);
-  // Post.findOne(
-  //   {
-  //     where: {
-  //       id: req.params.id
-  //     },
-  //     // attributes: [
-  //     //   'id', 'post_url', 'title', 'created_at',
-  //     //   // [sequelize.literal(
-  //     //   //   '(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'
-  //     //   // ), 'vote_count']
-  //     // ],
-  //     // include: [
-  //     //   {
-  //     //     model: User,
-  //     //     attributes: ['username']
-  //     //   }
-  //     // ]
-  //   }
-  // )
-  // .then(dbPostData => {
-  //   if (!dbPostData) {
-  //     res.status(404).json(
-  //       {
-  //         message: 'No post found with this user id'
-  //       }
-  //     );
-  //     return;
-  //   } else {
-  //     res.json(dbPostData);
-  //   }
-  // })
-  // .catch(err => {
-  //   console.log(err);
-  //   res.status(500).json(err);
-  // });
+  Post.findOne(
+    {
+      where: {
+        id: req.params.id 
+      },
+      attributes: [
+        'id', 'post_url', 'title', 'created_at',
+        [sequelize.literal(
+          '(SELECT COUNT (*) FROM vote WHERE post.id = vote.post_id)'
+        ), 'vote_count']
+      ],
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
+    }
+  )
+  .then(dbPostData => {
+    if (!dbPostData) {
+      res.status(404).json(
+        {
+          message: 'No post found with this user id'
+        }
+      );
+      return;
+    } else {
+      res.json(dbPostData);
+    }
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 //create a post, user_id must be included

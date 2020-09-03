@@ -4,7 +4,7 @@
     <span>({{post.post_url}})</span>
   </div>
   <div class="meta">
-    {{format_plural "upvote" post.vote_count}} by {{post.user.username}} on
+    {{post.vote_count}} {{format_plural "upvote" post.vote_count}} by {{post.user.username}} on
     {{post.created_at}}
     |
     <a href="/post/{{post.id}}">{{post_comments.length}} Make/View comment(s)</a>
