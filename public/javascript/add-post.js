@@ -4,8 +4,8 @@ const newFormHandler = async (event) => {
 
     const title = document.querySelector('input[name="post-title"]').value.trim();
     const post_url = document.querySelector('input[name="post-url"]').value.trim();
-
-    console.log(title, post_url);
+    //console.log(title, post_url);
+    if (!title || !post_url) throw new Error("Input fields can't be blank.");
     const response = await fetch('/api/posts', {
       method: 'POST',
       body: JSON.stringify(

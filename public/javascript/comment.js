@@ -3,10 +3,9 @@ const commentFormHandler = async (event) => {
     event.preventDefault();
 
     const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
-    const post_id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
-    console.log(comment_text, post_id);
+    const post_id = window.location.toString().split('/')[4].split('?')[0];
+    console.log(comment_text);
+    console.log(post_id);
     if (!comment_text) {
       window.alert("no comment written!");
       return;
@@ -23,8 +22,9 @@ const commentFormHandler = async (event) => {
         'Content-Type': 'application/json'
       }
     });
-    response.ok ? document.location.reload() : console.log("There was an error"); console.log(response.statusText);
+    response.ok ? console.log("did it work?") : console.log("There was an error"); console.log(response.statusText);
   } catch (error) {
     console.log(error);
   }
 }
+document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);

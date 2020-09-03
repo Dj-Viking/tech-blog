@@ -4,7 +4,7 @@
     <span>({{post.post_url}})</span>
   </div>
   <div class="meta">
-    {{post.vote_count}} upvote(s) by {{post.user.username}} on
+    {{format_plural "upvote" post.vote_count}} by {{post.user.username}} on
     {{post.created_at}}
     |
     <a href="/post/{{post.id}}">{{post_comments.length}} Make/View comment(s)</a>
@@ -26,7 +26,7 @@
   {{> comments post.comments}}
 </div>
 {{#if loggedIn}}
-<!--<script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script-->
+<script src="/javascript/comment.js"></script>
+<script src="/javascript/upvote.js"></script>
 {{/if}}
 

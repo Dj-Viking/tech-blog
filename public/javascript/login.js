@@ -19,7 +19,7 @@ const signupFormHandler = async (event) => {
         'Content-Type': 'application/json'
       }
     });
-    response.ok ? console.log("Thanks for logging in. Welcome Back!") : console.log("There was an error."); console.log(response.statusText);
+    response.ok ? document.location.reload() : console.log("There was an error."); console.log(response.statusText);
   } catch (error) {
     console.log(error);
   }
