@@ -10,7 +10,7 @@
 
   <body>
     <!-- div wrapper class -->
-    <div>
+    <div class="wrapper">
       <header>
         <h1>
           <a href="/">Tech Blog</a>
@@ -19,7 +19,7 @@
           {{#if loggedIn}}
           <a href="/dashboard">Dashboard</a>
           <!-- logout button style -->
-          <button id="logout">Logout</button>
+          <button id="logout" class="btn-style">Logout</button>
           {{else}}
           <a href="/login">Login</a>
           <a href="/login">Sign Up!</a>
