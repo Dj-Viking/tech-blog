@@ -1,4 +1,7 @@
-<h2>Articles</h2>
+{{#if loggedIn}}
+<h2>Welcome back <span class="username">{{username}}</span> </h2>
+{{/if}}
+<h2>Latest Articles</h2>
 <ol class="post-list">
   {{#each posts as |post|}}
   <li>

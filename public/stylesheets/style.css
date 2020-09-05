@@ -11,8 +11,6 @@ body, html {
   background-color: grey;
 }
 
-
-
 header {
   border-bottom: 1px solid #ccc;
   display: flex;
@@ -45,6 +43,10 @@ header h1 {
   margin-bottom: 0;
 }
 header h1 a{
+  color: rgb(0, 255, 0);
+}
+
+.username {
   color: rgb(0, 255, 0);
 }
 
@@ -121,6 +123,9 @@ form label {
   font-weight: bold;
   transition: color .1s;
   margin-left: 16px;
+}
+.btn-style:hover {
+  color: #3486eb;
 }
 
 .delete-post-btn {

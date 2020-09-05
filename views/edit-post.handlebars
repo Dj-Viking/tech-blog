@@ -1,3 +1,4 @@
+<a href="/">Back To HomePage</a>
 <article>
   <h2>
     Edit Post
@@ -21,16 +22,6 @@
   </form>
 </article>
 {{#if loggedIn}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body" autocomplete="off"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">Add A Comment!</button>
-  </div>
-</form>
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>
 {{/if}}

@@ -37,6 +37,7 @@ router.get('/', (req, res) => {
     }
   )
   .then(dbPostData => {
+    console.log(req.session);
     console.log(`
     `);
     console.log("\x1b[33m", "homepage render", "\x1b[00m");
@@ -45,7 +46,8 @@ router.get('/', (req, res) => {
     const posts = dbPostData.map(post => post.get({ plain: true }));
     res.render('homepage', {
       posts,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
+      username: req.session.username
     });
   })  
   .catch(err => {
@@ -116,7 +118,7 @@ router.get('/post/:id', (req, res) => {
     const post = dbPostData.get({ plain: true });
     res.render('single-post', {
       post,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
     });
   })
   .catch(err => {
