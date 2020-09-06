@@ -131,7 +131,10 @@ router.get('/delete-account', withAuth, (req, res) => {
     console.log(dbUserData);
 
   })
-  .catch(err => console.log(err));
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
   res.render('delete-account', {
     loggedIn: true,
     user_id: req.session.user_id
@@ -139,8 +142,8 @@ router.get('/delete-account', withAuth, (req, res) => {
 });
 //delete user account
 router.delete('/delete-account/', withAuth, (req, res) => {
-  console.log('\x1b[33m', 'checking request session before destroy', '\x1b[00m');
-  console.log(req.session);
+  // console.log('\x1b[33m', 'checking request session before destroy', '\x1b[00m');
+  // console.log(req.session);
   console.log(`
   
   `);
@@ -173,8 +176,8 @@ router.delete('/delete-account/', withAuth, (req, res) => {
           }
         );
       }
-      console.log('\x1b[33m', 'checking req.session after destroy', '\x1b[00m');
-      console.log(req.session);
+      // console.log('\x1b[33m', 'checking req.session after destroy', '\x1b[00m');
+      // console.log(req.session);
       User.destroy(
         {
           where: {
@@ -183,7 +186,10 @@ router.delete('/delete-account/', withAuth, (req, res) => {
         }
       );  
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
   } else {
     res.status(500).json({message: "no email sent"});
   }
