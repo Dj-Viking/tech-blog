@@ -124,6 +124,18 @@ form label {
   transition: color .1s;
   margin-left: 16px;
 }
+.delete-btn-style {
+  cursor: pointer;
+  text-decoration: none;
+  color: red;
+  font-size: 100%;
+  font-weight: bold;
+  transition: color .1s;
+  margin-left: 16px;
+}
+.delete-btn-style:hover {
+  color: rgb(255, 159, 159);
+}
 .btn-style:hover {
   color: #3486eb;
 }

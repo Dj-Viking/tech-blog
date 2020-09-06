@@ -15,7 +15,7 @@ app.set('view engine', 'handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
-  secret: 'Tha Secret Cookie Mang',
+  secret: ['Tha Secret Cookie Mang', 'which secret is it?'],
   cookie: {},
   resave: false,
   saveUninitialized: true,

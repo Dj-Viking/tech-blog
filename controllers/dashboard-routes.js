@@ -44,8 +44,12 @@ router.get('/', withAuth, (req, res) => {
   )
   .then(dbPostData => {
     const posts = dbPostData.map(post => post.get({ plain: true }));
+    
     console.log(posts);
-    res.render('dashboard', { posts, loggedIn: true });
+    res.render('dashboard', {
+       posts, 
+       loggedIn: true
+    });
   })
   .catch(err => {
     console.log(err);
@@ -104,6 +108,85 @@ router.get('/edit/:id', withAuth, (req, res) => {
     console.log(err);
     res.status(500).json(err);
   });
+});
+
+//get delete account page
+router.get('/delete-account', withAuth, (req, res) => {
+  console.log(req.session);
+  console.log(`
+  
+  `);
+  console.log('\x1b[33m', 'client request to get delete account page', '\x1b[00m');
+  console.log(`
+  
+  `);
+  User.findOne(
+    {
+      where: {
+        id: req.session.user_id
+      }
+    }
+  )
+  .then(dbUserData => {
+    console.log(dbUserData);
+
+  })
+  .catch(err => console.log(err));
+  res.render('delete-account', {
+    loggedIn: true,
+    user_id: req.session.user_id
+  });
+});
+//delete user account
+router.delete('/delete-account/', withAuth, (req, res) => {
+  console.log('\x1b[33m', 'checking request session before destroy', '\x1b[00m');
+  console.log(req.session);
+  console.log(`
+  
+  `);
+  console.log('\x1b[33m', 'client request to get delete user account', '\x1b[00m');
+  console.log(`
+  
+  `);
+  if (req.body.email) {
+    User.findOne(
+      {
+        where: {
+          email: req.body.email
+        }
+      }
+    )
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(400).json({message: `there was an error try again`});
+        return;
+      }
+      const validPassword = dbUserData.checkPassword(req.body.password);
+      if (!validPassword) {
+        res.status(400).json({message: 'Incorrect Password' });
+        return;
+      }
+      if (req.session.loggedIn) {
+        req.session.destroy(
+          () => {
+            res.status(204).end();
+          }
+        );
+      }
+      console.log('\x1b[33m', 'checking req.session after destroy', '\x1b[00m');
+      console.log(req.session);
+      User.destroy(
+        {
+          where: {
+            email: req.body.email
+          }
+        }
+      );  
+    })
+    .catch(err => console.log(err));
+  } else {
+    res.status(500).json({message: "no email sent"});
+  }
 });
 
 //edit a post from dashboard page
