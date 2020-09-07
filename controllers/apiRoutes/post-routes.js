@@ -134,7 +134,7 @@ router.put('/upvote', withAuth, (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json(err);
+      res.status(500).json("Users can only upvote once per post!");
     });
   } 
 });

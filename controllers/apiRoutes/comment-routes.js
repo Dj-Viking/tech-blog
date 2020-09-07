@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
   console.log(`
   
   `);
-  console.log('\x1b[33m', 'client request for user to make an upvote on a post', '\x1b[00m');
+  console.log('\x1b[33m', 'client request for user to post a comment', '\x1b[00m');
   console.log(`
   
   `);
@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({ message: "You must be logged on to do that."});
+      res.status(500).json("there was a problem with your comment request");
     });
   } else if (!req.session.user_id || req.session.user_id === null) {
     res.status(400).json({message: 'You must be logged in to do that.'});

@@ -5,10 +5,7 @@
     <span>({{post.post_url}})</span>
   </div>
   <div class="meta">
-    {{post.vote_count}} {{format_plural "upvote" post.vote_count}} by {{post.user.username}} on
-    {{post.created_at}}
-    |
-    <a href="/post/{{post.id}}">{{post_comments.length}} Make/View comment(s)</a>
+    {{post.vote_count}} {{format_plural "upvote" post.vote_count}} on {{post.user.username}}'s post.
   </div>
 </article>
 {{#if loggedIn}}
@@ -20,6 +17,16 @@
   <div>
     <button type="submit">Add A Comment!</button>
     <button type="button" class="upvote-btn">Upvote</button>
+  </div>
+  <div>
+    <p class="hide-before-error" id="comment-err">
+      Type something to leave a comment!
+    </p>
+  </div>
+    <div>
+    <p class="hide-before-error" id="upvote-err">
+      Users can only upvote once per post!
+    </p>
   </div>
 </form>
 {{/if}}
