@@ -22,7 +22,7 @@ const signupFormHandler = async (event) => {
         'Content-Type': 'application/json'
       }
     });
-    response.ok ? document.location.reload() : console.log("There was an error."); console.log(response.statusText); console.log(response.statusText); setTimeout(function(){signupErrEl.classList.remove('show-after-error');signupErrEl.classList.add('hide-before-error');}, 3000);
+    response.ok ? document.location.reload() : console.log("There was an error."); console.log(response.statusText); setTimeout(function(){signupErrEl.classList.remove('show-after-error');signupErrEl.classList.add('hide-before-error');}, 3000);
   } catch (error) {
     console.log(error);
   }
