@@ -13,6 +13,9 @@
       <input id="post-url" name="post-url" placeholder="https://www.example.com" autocomplete="off"/>
     </div>
     <button type="submit" class="btn">Create Post</button>
+    <p class="hide-before-error" id="post-err">
+      Type something to make a post!
+    </p>
   </form>
 </section>
 {{#if posts.length}}
