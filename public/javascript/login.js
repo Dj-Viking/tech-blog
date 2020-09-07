@@ -6,8 +6,25 @@ const signupFormHandler = async (event) => {
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     if (!username || !email || !password) {
-      signupErrEl.classList.remove('hide-before-error');
-      signupErrEl.classList.add('show-after-error');
+      Promise.resolve()
+      .then(
+        () => {
+          signupErrEl.classList.remove('hide-before-error');
+          signupErrEl.classList.add('show-after-error');
+        }
+      ).then(
+        () => {
+          setTimeout(
+            () => {
+              signupErrEl.classList.remove('show-after-error');
+              signupErrEl.classList.add('hide-before-error');
+            }, 3000
+          );
+        }
+      )
+      .catch(err => {
+        console.log(err);
+      });
     }
     const response = await fetch('/api/users', {
       method: 'POST',
@@ -22,7 +39,14 @@ const signupFormHandler = async (event) => {
         'Content-Type': 'application/json'
       }
     });
-    response.ok ? document.location.reload() : console.log("There was an error."); console.log(response.statusText); setTimeout(function(){signupErrEl.classList.remove('show-after-error');signupErrEl.classList.add('hide-before-error');}, 3000);
+    if (response.ok) {
+
+      document.location.reload(); 
+    } else {
+      console.log("There was an error."); 
+      console.log(response.statusText);
+      response.json().then(json => console.log(json)); 
+    }
   } catch (error) {
     console.log(error);
   }
@@ -37,8 +61,25 @@ const loginFormHandler = async (event) => {
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
     if (!email || !password) {
-        loginErrEl.classList.remove('hide-before-error');
-        loginErrEl.classList.add('show-after-error');
+      Promise.resolve()
+      .then(
+        () => {
+          loginErrEl.classList.remove('hide-before-error');
+          loginErrEl.classList.add('show-after-error');
+        }
+      ).then(
+        () => {
+          setTimeout(
+            () => {
+              loginErrEl.classList.remove('show-after-error');
+              loginErrEl.classList.add('hide-before-error');
+            }, 3000
+          );
+        }
+      )
+      .catch(err => {
+        console.log(err);
+      });
     }
     const response = await fetch('/api/users/login', {
       method: 'POST',
@@ -50,7 +91,11 @@ const loginFormHandler = async (event) => {
       ),
       headers: {'Content-Type': 'application/json'}
     });
-    response.ok ? document.location.replace('/') : console.log("There was an error."); console.log(response.statusText); setTimeout(function(){loginErrEl.classList.remove('show-after-error');loginErrEl.classList.add('hide-before-error');},3000);
+    if (response.ok) {
+      document.location.replace('/')
+    } else {
+      console.log("There was an error");
+    } 
   } catch (error) {
     console.log(error);
   }
