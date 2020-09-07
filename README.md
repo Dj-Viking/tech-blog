@@ -13,9 +13,8 @@
 Blog website developed with full stack coding platforms using JavaScript, Handlebars.js, Node.js, Express.js, and many other node packages.
 
 ## Table of Contents
-* [Installation](#Installation)
 * [Usage](#Usage)
-* [Testing](#Testing)
+* [Heroku](#Heroku)
 * [Credits](#Credits)
 * [Contribute](#Contribute)
 * [License](#License)
@@ -23,13 +22,11 @@ Blog website developed with full stack coding platforms using JavaScript, Handle
 
 ## Usage
 
-screenshot soon
+![screenshot](./screenshot/screenshot.png "screenshot")
 
-## Testing
-
-Once the program has the dependencies installed run this test script command to start the program:
-
-<code>npm start</code>
+## Heroku
+* 👇 Click the badge below to check out the deployed app on Heroku!
+* [![Deployed_on: Heroku](https://img.shields.io/badge/Deployed_on-Heroku-6b00b6.svg)](https://tekk-blog.herokuapp.com/) 
 
 ## Credits
 
