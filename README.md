@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ### Powered By 
-[![Node: JS](https://img.shields.io/badge/Node-JS-cfcc00.svg)](https://nodejs.org/en/) [![Express: JS](https://img.shields.io/badge/Express-JS-1b9e00.svg)](https://github.com/expressjs/express) [![Express: session](https://img.shields.io/badge/npm_express-session-1b9e00.svg)](https://github.com/expressjs/express)
+[![Node: JS](https://img.shields.io/badge/Node-JS-cfcc00.svg)](https://nodejs.org/en/) [![Express: JS](https://img.shields.io/badge/Express-JS-1b9e00.svg)](https://github.com/expressjs/express) [![Express: session](https://img.shields.io/badge/npm_express-session-1b9e00.svg)](https://github.com/expressjs/session)
 [![npm: mysql2](https://img.shields.io/badge/npm-mysql2-111AFF.svg)](https://github.com/sidorares/node-mysql2) [![npm: Sequelize](https://img.shields.io/badge/npm-Sequelize-00688a.svg)](https://github.com/sequelize/sequelize)  [![npm: Sequelize](https://img.shields.io/badge/npm-session_sequelize-00688a.svg)](https://github.com/mweibel/connect-session-sequelize)  [![Database: MySQL](https://img.shields.io/badge/Database-MySQL-111AFF.svg)](https://downloads.mysql.com/archives/community/)  [![npm: bcrypt](https://img.shields.io/badge/npm-bcrypt-6b00b6.svg)](https://github.com/kelektiv/node.bcrypt.js) [![npm: dotenv](https://img.shields.io/badge/npm-dotenv-001a80.svg)](https://github.com/motdotla/dotenv) [![Operation: CRUD](https://img.shields.io/badge/Operation-CRUD-red.svg)](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
 
 ## Description 
