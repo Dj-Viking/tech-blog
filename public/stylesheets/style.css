@@ -11,6 +11,15 @@ body, html {
   background-color: grey;
 }
 
+.hide-before-error {
+  display: none;
+  color: red;
+}
+.show-after-error {
+  display: block;
+  color: red;
+}
+
 header {
   border-bottom: 1px solid #ccc;
   display: flex;
